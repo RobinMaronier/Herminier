@@ -3,9 +3,9 @@ Hybrid Mobile project for find free velib in Paris
 
 Ionic 2.
 
-Group:
-- hermit_a - alexandre.hermitant@epitech.eu
-- maroni_r - robin.maronier@epitech.eu
+Group number (???) : 
+- hermit_a - alexandre.hermitant@epitech.eu -> in class
+- maroni_r - robin.maronier@epitech.eu -> in class
 
 Project tested with :
 - Chrome (Windows & Linux)
