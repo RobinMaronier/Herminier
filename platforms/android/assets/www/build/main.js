@@ -84,7 +84,7 @@ var HomePage = (function () {
         for (var _i = 0, data_1 = data; _i < data_1.length; _i++) {
             var i = data_1[_i];
             var tab = { lat: i.geometry.coordinates[1], lng: i.geometry.coordinates[0] };
-            __WEBPACK_IMPORTED_MODULE_2_leaflet__["marker"](tab, { icon: icon }).addTo(that.map).bindPopup(i.fields.name);
+            __WEBPACK_IMPORTED_MODULE_2_leaflet__["marker"](tab, { icon: icon }).addTo(that.map).bindPopup(i.fields.name + '<br/>Vélib disponible : ' + i.fields.available_bikes + '<br/>Place disponible : ' + i.fields.available_bike_stands);
         }
     };
     HomePage.prototype.removeAllLayers = function (that) {
@@ -102,15 +102,14 @@ var HomePage = (function () {
         var circle = __WEBPACK_IMPORTED_MODULE_2_leaflet__["circle"]([0, 0], { radius: 1000 }).addTo(this.map);
         var marker = __WEBPACK_IMPORTED_MODULE_2_leaflet__["marker"]([0, 0]).addTo(this.map);
         //web location
-        this.map.locate({ setView: true, watch: false });
-        this.map.locate({ setView: false, watch: true });
+        this.map.locate({ setView: true, watch: true });
         var thisMap = this.map;
         var velibRequest = this.velibRequest;
         var that = this;
         function onLocationFound(e) {
             that.removeAllLayers(that);
             marker.remove();
-            marker.setLatLng(e.latlng).addTo(thisMap).bindPopup('Ma position');
+            marker.setLatLng(e.latlng).addTo(thisMap).bindPopup('Toutes les stations velib à 1km de ma position');
             circle.remove();
             circle.setLatLng(e.latlng).addTo(thisMap);
             velibRequest(e.latlng, that);
@@ -125,7 +124,7 @@ var HomePage = (function () {
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/home/robin/Documents/Ionic/Herminier/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Map\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n\n<ion-content [attr.noScroll]="shouldScroll">\n  <div id="map"></div>\n</ion-content>\n'/*ion-inline-end:"/home/robin/Documents/Ionic/Herminier/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/home/robin/Documents/Ionic/HerminierRendu/Herminier/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Map\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n\n<ion-content [attr.noScroll]="shouldScroll">\n  <div id="map"></div>\n</ion-content>\n'/*ion-inline-end:"/home/robin/Documents/Ionic/HerminierRendu/Herminier/src/pages/home/home.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__Provider_Requestvelib__["a" /* Requestvelib */]])
 ], HomePage);
@@ -326,7 +325,7 @@ var MyApp = (function () {
     return MyApp;
 }());
 MyApp = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/home/robin/Documents/Ionic/Herminier/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/robin/Documents/Ionic/Herminier/src/app/app.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/home/robin/Documents/Ionic/HerminierRendu/Herminier/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/robin/Documents/Ionic/HerminierRendu/Herminier/src/app/app.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
 ], MyApp);
