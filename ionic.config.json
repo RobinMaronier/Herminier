@@ -1,0 +1,8 @@
+{
+  "name": "Herminier",
+  "app_id": "",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
