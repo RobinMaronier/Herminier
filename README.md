@@ -18,6 +18,6 @@ For launch :
 
 Subject: application for find a free station where to park bikes or a station with free bike for take them.
 
-Mapbox, Leaflet
+Mapbox, Leaflet, Permission
 
 Webstorm, Atom
